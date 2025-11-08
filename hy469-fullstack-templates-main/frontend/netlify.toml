@@ -1,7 +1,4 @@
 [build]
+  base = "hy469-fullstack-templates-main/frontend"
   command = "npm run build"
-  publish = "dist/demo/browser"
-
-
-[build.environment]
-  NODE_VERSION = "18"
+  publish = "hy469-fullstack-templates-main/frontend/dist/demo/browser"
