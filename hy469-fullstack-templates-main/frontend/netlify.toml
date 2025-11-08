@@ -1,0 +1,4 @@
+[build]
+  base = "hy469-fullstack-templates-main/frontend"
+  command = "npm run build"
+  publish = "hy469-fullstack-templates-main/frontend/dist/demo/browser"
