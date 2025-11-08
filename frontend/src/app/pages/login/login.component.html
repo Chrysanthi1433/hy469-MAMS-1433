@@ -1,0 +1,125 @@
+<div class="login-container">
+  <!-- Κουμπί αλλαγής γλώσσας -->
+  <button class="language-toggle" (click)="toggleLanguage()">
+    {{ languageService.currentLanguageValue === 'el' ? 'EN' : 'ΕΛ' }}
+  </button>
+
+  <div class="login-card">
+    <!-- Logo/Τίτλος -->
+    <div class="login-header">
+      <h1>{{ t('login.title') }}</h1>
+    </div>
+
+    <!-- Φόρμα Login -->
+    <form *ngIf="!isSignupMode" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <!-- Email -->
+      <div class="form-group">
+        <label>{{ t('login.email') }}</label>
+        <input 
+          type="email" 
+          formControlName="email"
+          [placeholder]="t('login.email')"
+        />
+        <div class="error" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          {{ languageService.currentLanguageValue === 'el' ? 'Μη έγκυρο email' : 'Invalid email' }}
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label>{{ t('login.password') }}</label>
+        <input 
+          type="password" 
+          formControlName="password"
+          [placeholder]="t('login.password')"
+        />
+        <div class="error" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          {{ languageService.currentLanguageValue === 'el' ? 'Τουλάχιστον 6 χαρακτήρες' : 'At least 6 characters' }}
+        </div>
+      </div>
+
+      <!-- Error Message -->
+      <div class="error" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+
+      <!-- Submit Button -->
+      <button 
+        type="submit" 
+        class="btn-primary" 
+        [disabled]="loading || loginForm.invalid"
+      >
+        {{ loading ? t('common.loading') : t('login.submit') }}
+      </button>
+
+      <!-- Signup Link -->
+      <div class="toggle-mode">
+        <span>{{ t('login.noAccount') }}</span>
+        <a (click)="toggleMode()">{{ t('login.signUp') }}</a>
+      </div>
+    </form>
+
+    <!-- Φόρμα Signup -->
+    <form *ngIf="isSignupMode" [formGroup]="signupForm" (ngSubmit)="onSignup()">
+      <!-- Name -->
+      <div class="form-group">
+        <label>{{ languageService.currentLanguageValue === 'el' ? 'Όνομα' : 'Name' }}</label>
+        <input 
+          type="text" 
+          formControlName="name"
+          [placeholder]="languageService.currentLanguageValue === 'el' ? 'Όνομα' : 'Name'"
+        />
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label>{{ t('login.email') }}</label>
+        <input 
+          type="email" 
+          formControlName="email"
+          [placeholder]="t('login.email')"
+        />
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label>{{ t('login.password') }}</label>
+        <input 
+          type="password" 
+          formControlName="password"
+          [placeholder]="t('login.password')"
+        />
+      </div>
+
+      <!-- User Type -->
+      <div class="form-group">
+        <label>{{ languageService.currentLanguageValue === 'el' ? 'Τύπος Χρήστη' : 'User Type' }}</label>
+        <select formControlName="userType">
+          <option value="adult">{{ languageService.currentLanguageValue === 'el' ? 'Ενήλικας' : 'Adult' }}</option>
+          <option value="child">{{ languageService.currentLanguageValue === 'el' ? 'Παιδί' : 'Child' }}</option>
+          <option value="elderly">{{ languageService.currentLanguageValue === 'el' ? 'Ηλικιωμένος' : 'Elderly' }}</option>
+        </select>
+      </div>
+
+      <!-- Error Message -->
+      <div class="error" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+
+      <!-- Submit Button -->
+      <button 
+        type="submit" 
+        class="btn-primary" 
+        [disabled]="loading || signupForm.invalid"
+      >
+        {{ loading ? t('common.loading') : t('login.signUp') }}
+      </button>
+
+      <!-- Login Link -->
+      <div class="toggle-mode">
+        <span>{{ languageService.currentLanguageValue === 'el' ? 'Έχετε λογαριασμό;' : 'Have an account?' }}</span>
+        <a (click)="toggleMode()">{{ t('login.submit') }}</a>
+      </div>
+    </form>
+  </div>
+</div>
