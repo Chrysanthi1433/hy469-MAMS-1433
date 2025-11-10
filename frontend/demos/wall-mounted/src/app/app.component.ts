@@ -94,19 +94,19 @@ export class AppComponent implements AfterViewInit {
   confirmTaken() {
     // 1) Διακριτικό οπτικό feedback (✓ για 1s)
     this.flashTick(1000);
-    // 2) Φωνητικό μήνυμα (προαιρετικό – το κρατάμε όπως ήθελες)
+    // 2) Φωνητικό μήνυμα 
     this.speakOnce('Μπράβο! Πήρες το χάπι.');
   }
 
   postpone() {
   
     this.speakOnce('Εντάξει, θα το πάρεις αργότερα.');
-    // ➜ Πλοήγηση σε σελίδα αναβολής (εκεί θα φτιάξουμε επιλογή χρόνου σε άλλο component)
+    // ➜ Πλοήγηση σε σελίδα αναβολής ( επιλογή χρόνου σε άλλο component)
     this.router.navigate(['/postpone']);
   }
 
   ngAfterViewInit() {
-    // Μικρή καθυστέρηση για να φορτώσουν οι φωνές & να “ξυπνήσει” το TTS
+    // Μικρή καθυστέρηση για να φορτώσουν οι φωνές & το TTS
     setTimeout(() => this.speakOnce('Ώρα για το χάπι της πίεσης. Πες: Το πήρα ή Αργότερα.'), 400);
 
     // Fallback: αν ο browser μπλοκάρει autoplay, μίλα στο πρώτο user gesture
