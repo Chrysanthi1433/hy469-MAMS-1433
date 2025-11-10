@@ -12,9 +12,8 @@
 - Δύο μεγάλα κουμπιά:
   - **«Το πήρα»** → πράσινο διακριτικό ✓ για 1s + TTS «Μπράβο! Πήρες το χάπι.»
   - **«Αργότερα»** → TTS «Εντάξει, θα το πάρεις αργότερα.» + πλοήγηση στο `/postpone` (θα υλοποιηθεί στο v2).
-- Προσβασιμότητα: `@media (prefers-reduced-motion: reduce)` απενεργοποιεί animations για χρήστες που το έχουν ζητήσει.
+- Προσβασιμότητα: `@media (prefers-reduced-motion: reduce)` απενεργοποιεί animations για χρήστες που το έχουν ζητήσει (accessibility).
 
-> **Σημείωση:** Στην έκδοση **v1** δεν υλοποιούμε ακόμα τη σελίδα αναβολής (*postpone screen*). Το routing είναι προετοιμασμένο για το **v2**.
 
 ---
 
@@ -26,13 +25,12 @@
 - `CommonModule` → για βασικές οδηγίες όπως `*ngIf` (χρησιμοποιείται στο ✓ feedback).
 - `RouterModule` + `RouterOutlet` → για routing και μελλοντική φόρτωση της σελίδας `/postpone`.
 
-Τα κουμπιά είναι **απλά HTML `<button>`** με **δικό CSS** (όχι Angular Material).
+Τα κουμπιά είναι **HTML `<button>`** με **CSS** (όχι Angular Material).
 
 ---
 
-## Α(Angular Docs)
 
-Στο Angular documentation για **standalone components** φαίνεται ότι μπορείς να περάσεις ό,τι χρειάζεσαι στο `imports`.  
+Angular documentation για **standalone components**   `imports`.  
 
 ```ts
 @Component({
