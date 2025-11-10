@@ -10,9 +10,9 @@
 - Εικόνα χαπιού με fallback (SVG) αν αποτύχει το φορτώσιμο.
 - φωνητικές οδηγίες (Web Speech API – `speechSynthesis`, `el-GR`).
 - Δύο μεγάλα κουμπιά:
-  - «Το πήρα» → πράσινο διακριτικό ✓ για 1s + TTS «Μπράβο! Πήρες το χάπι.»
+  - «Το πήρα» → πράσινο διακριτικό ✓ για 1s + TTS (Text-to-Speech) \«Μπράβο! Πήρες το χάπι.»
   - «Αργότερα»→ TTS «Εντάξει, θα το πάρεις αργότερα.» + πλοήγηση στο `/postpone` (θα υλοποιηθεί στο v2).
-- Προσβασιμότητα: `@media (prefers-reduced-motion: reduce)` απενεργοποιεί animations για χρήστες που το έχουν ζητήσει (accessibility).
+- Προσβασιμότητα: `@media (prefers-reduced-motion: reduce)` απενεργοποιεί το ✓ αν ο χρήστης το ρυθμίσει (accessibility).
 
 
 ---
@@ -22,7 +22,7 @@
 `standalone: true`
 
 Στο component import:
-- `CommonModule` → για βασικές οδηγίες όπως `*ngIf` (χρησιμοποιείται στο ✓ feedback).
+- `CommonModule` → για βασικές οδηγίες όπως `ngIf` true or false directine . π.χ «Το πήρα» = ✓ 
 - `RouterModule` + `RouterOutlet` → για routing και μελλοντική φόρτωση της σελίδας `/postpone`.
 
 Τα κουμπιά είναι HTML `<button>` με CSS
