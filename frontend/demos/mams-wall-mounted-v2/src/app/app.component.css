@@ -1,0 +1,65 @@
+.main-container {
+  text-align: center;
+  font-family: sans-serif;
+  padding: 24px;
+}
+
+.logo-bar {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.time-display {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.pill-image img {
+  width: 180px;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  border: 2px solid #ccc;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.btn-taken, .btn-postpone {
+  font-size: 1.4rem;
+  padding: 16px 24px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-taken {
+  background-color: #10b981;
+  color: white;
+}
+
+.btn-postpone {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.countdown {
+  font-size: 1.2rem;
+  color: #ef4444;
+  margin-bottom: 16px;
+}
+
+.extra-buttons button {
+  font-size: 1rem;
+  margin: 8px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #f9fafb;
+  cursor: pointer;
+}

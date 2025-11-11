@@ -1,0 +1,9 @@
+<div>
+  <h1>Ώρα: {{ currentTime }}</h1>
+  <img [src]="pillUrl" (error)="onImgError()" alt="Pill" width="200" />
+  <p *ngIf="postponeCountdown > 0">Αναβολή: {{ postponeCountdown }} δευτερόλεπτα</p>
+  <button (click)="confirmTaken()">Το πήρα</button>
+  <button (click)="postpone()">Αργότερα</button>
+  <span *ngIf="showTick">✔️</span>
+</div>
+

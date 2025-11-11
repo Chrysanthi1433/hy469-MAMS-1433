@@ -1,0 +1,18 @@
+<div class="main-container">
+  <div class="logo-bar">MAMS</div>
+  <div class="time-display">{{ currentTime }}</div>
+  <div class="pill-image">
+    <img [src]="pillUrl" (error)="onImgError()" alt="Χάπι" />
+  </div>
+  <div *ngIf="showTick" class="tick-message">✅ Καταγράφηκε!</div>
+  <div class="action-buttons">
+    <button class="btn-taken" (click)="confirmTaken()">Το πήρα</button>
+    <button class="btn-postpone" (click)="postpone()">Αργότερα</button>
+  </div>
+  <div *ngIf="postponeCountdown > 0" class="countdown">
+    Υπενθύμιση σε {{ postponeCountdown }} δευτερόλεπτα
+  </div>
+</div>
+
+<!-- Εδώ εμφανίζεται το routed component -->
+<router-outlet></router-outlet>
